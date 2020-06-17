@@ -44,6 +44,6 @@ CH559.build.f_cpu=48000000L
 CH559.build.board=CH559
 CH559.build.core=ch55xduino
 CH559.build.variant=ch559
-CH559.build.extra_flags=--model-small -DEP0_ADDR=0 -DEP1_ADDR=10 -DEP2_ADDR=20
+CH559.build.extra_flags=--model-small -DEP0_ADDR=0 -DEP1_ADDR=10 -DEP2_ADDR=20 -D__CH559__
 
 CH559.upload.speed=1
