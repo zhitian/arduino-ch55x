@@ -25,3 +25,25 @@ ch552.build.extra_flags=--model-small -DEP0_ADDR=0 -DEP1_ADDR=10 -DEP2_ADDR=20
 # meaningless variables just to keep the makefile happy
 
 ch552.upload.speed=1
+
+# CH559
+
+CH559.name=CH559
+
+CH559.upload.tool=vnproch55x
+CH559.upload.protocol=ch55x2_3_1
+CH559.upload.mcu=ch559
+CH559.upload.maximum_size=61440
+CH559.upload.maximum_data_size=1024
+CH559.upload.xdata_location=148
+CH559.upload.use_1200bps_touch=true
+CH559.upload.wait_for_upload_port=false
+
+CH559.build.mcu=mcs51
+CH559.build.f_cpu=48000000L
+CH559.build.board=CH559
+CH559.build.core=ch55xduino
+CH559.build.variant=ch559
+CH559.build.extra_flags=--model-small -DEP0_ADDR=0 -DEP1_ADDR=10 -DEP2_ADDR=20
+
+CH559.upload.speed=1
