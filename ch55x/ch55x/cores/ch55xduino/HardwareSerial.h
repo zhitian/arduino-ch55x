@@ -3,7 +3,11 @@
 
 #include <stdint.h>
 #include <stdio.h>
-#include "include/ch554.h"
+#if defined(__CH559__)
+ #include "include/ch559.h"
+#else
+  #include "include/ch554.h"
+#endif
 
 #define SERIAL0_TX_BUFFER_SIZE 16
 #define SERIAL0_RX_BUFFER_SIZE 16
