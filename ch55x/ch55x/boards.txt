@@ -1,0 +1,27 @@
+# See: http://code.google.com/p/arduino/wiki/Platforms
+
+menu.upload_method=Upload method
+##############################################################
+
+ch552.name=CH552 Board
+ch552.upload.tool=vnproch55x
+ch552.upload.protocol=ch55x2_3_1
+#ch552.upload.mcu=ch552
+#CH552 has 16K flash
+ch552.upload.maximum_size=16384
+
+ch552.upload.maximum_data_size=876
+ch552.upload.xdata_location=148
+ch552.upload.use_1200bps_touch=true
+ch552.upload.wait_for_upload_port=false
+
+ch552.build.mcu=mcs51
+ch552.build.f_cpu=24000000L
+ch552.build.board=ch55x
+ch552.build.core=ch55xduino
+ch552.build.variant=ch552
+ch552.build.extra_flags=--model-small -DEP0_ADDR=0 -DEP1_ADDR=10 -DEP2_ADDR=20
+
+# meaningless variables just to keep the makefile happy
+
+ch552.upload.speed=1

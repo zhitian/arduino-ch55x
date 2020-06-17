@@ -1,0 +1,69 @@
+#include "USBconstant.h"
+
+
+/*设备描述符*/
+__code uint8_t DevDesc[] = {
+    0x12,0x01,
+    0x10,0x01,  //USB spec release number in BCD format, USB1.1 (0x10, 0x01).
+    0xEF,0x02,0x01, //bDeviceClass, bDeviceSubClass, bDeviceProtocol 
+    DEFAULT_ENDP0_SIZE, //bNumConfigurations
+    0x09,0x12,0x50,0xC5, // VID PID 
+    0x01,0x01,  //version
+    0x01,0x02,0x03, //bString
+    0x01    //bNumConfigurations
+};
+
+__code uint16_t DevDescLen = sizeof(DevDesc);
+
+__code uint8_t CfgDesc[] ={
+    0x09,0x02,sizeof(CfgDesc) & 0xff,sizeof(CfgDesc) >> 8,
+    0x02,0x01,0x00,0x80,0x64,             //配置描述符（2个接口）
+    // Interface Association Descriptor, IAD, this packes following 2 interfaces into 1
+    0x08,0x0B,0x00,0x02,0x02,0x02,0x01,0x04,
+    //以下为接口1（CDC）描述符
+    0x09,0x04,0x00,0x00,0x01,0x02,0x02,0x01,0x04,    // CDC control 描述，1端点
+    //以下为功能描述符 refer to usbcdc11.pdf
+    0x05,0x24,0x00,0x10,0x01,                                 //功能描述符(头) Header Functional Descriptor
+    0x05,0x24,0x01,0x00,0x00,                                 //管理描述符(没有数据类接口) 03 01    Call Management Functional Descriptor
+    0x04,0x24,0x02,0x02,                                      //支持Set_Line_Coding、Set_Control_Line_State、Get_Line_Coding、Serial_State Direct Line Management Functional Descriptor
+    0x05,0x24,0x06,0x00,0x01,                                 //编号为0的CDC接口;编号1的数据类接口 Union Functional Descriptor
+    0x07,0x05,0x81,0x03,0x08,0x00,0x40,                       //中断上传端点描述符
+    //以下为接口2（数据接口）描述符
+    0x09,0x04,0x01,0x00,0x02,0x0a,0x00,0x00,0x04,             //数据接口描述符
+    0x07,0x05,0x02,0x02,0x40,0x00,0x00,                       //端点描述符
+    0x07,0x05,0x82,0x02,0x40,0x00,0x00,                       //端点描述符
+
+};
+
+__code uint16_t CfgDescLen = sizeof(CfgDesc);
+
+/*字符串描述符*/
+__code uint8_t LangDes[]={0x04,0x03,0x09,0x04};           //语言描述符
+__code uint16_t LangDesLen = sizeof(LangDes);
+__code uint8_t SerDes[]={                                 //序列号字符串描述符
+    0x0C,0x03,
+    'C',0x00,'H',0x00,'5',0x00,'5',0x00,'x',0x00
+};
+__code uint16_t SerDesLen = sizeof(SerDes);
+__code uint8_t Prod_Des[]={                                //产品字符串描述符
+    0x16,0x03,
+    'C',0x00,'H',0x00,'5',0x00,'5',0x00,'x',0x00,'d',0x00,
+    'u',0x00,'i',0x00,'n',0x00,'o',0x00
+};
+__code uint16_t Prod_DesLen = sizeof(Prod_Des);
+
+__code uint8_t CDC_Des[]={                                //产品字符串描述符
+    0x16,0x03,
+    'C',0x00,'D',0x00,'C',0x00,' ',0x00,'S',0x00,'e',0x00,
+    'r',0x00,'i',0x00,'a',0x00,'l',0x00
+};
+__code uint16_t CDC_DesLen = sizeof(CDC_Des);
+
+__code uint8_t Manuf_Des[]={
+    0x0E,0x03,
+    'D',0x00,'e',0x00,'q',0x00,'i',0x00,'n',0x00,'g',0x00,
+};
+__code uint16_t Manuf_DesLen = sizeof(Manuf_Des);
+
+
+
