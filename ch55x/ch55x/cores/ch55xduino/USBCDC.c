@@ -1,7 +1,13 @@
 #include <stdint.h>
 #include <stdbool.h>
-#include "include/ch554.h"
-#include "include/ch554_usb.h"
+
+#if defined(__CH559__)
+ #include "include/ch559.h"
+ #include "include/ch559_usb.h"
+#else
+  #include "include/ch554.h"
+  #include "include/ch554_usb.h"
+#endif
 
 extern __xdata __at (EP0_ADDR) uint8_t  Ep0Buffer[];
 extern __xdata __at (EP2_ADDR) uint8_t  Ep2Buffer[];

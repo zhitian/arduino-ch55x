@@ -3,8 +3,13 @@
 
 #include <stdint.h>
 #include <stdio.h>
-#include "include/ch554.h"
-#include "include/ch554_usb.h"
+#if defined(__CH559__)
+ #include "include/ch559.h"
+ #include "include/ch559_usb.h"
+#else
+  #include "include/ch554.h"
+  #include "include/ch554_usb.h"
+#endif
 
 #include "Arduino.h"
 

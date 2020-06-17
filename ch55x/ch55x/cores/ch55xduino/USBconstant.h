@@ -2,8 +2,13 @@
 #define __CONST_DATA_H__
 
 #include <stdint.h>
-#include "include/ch554.h"
-#include "include/ch554_usb.h"
+#if defined(__CH559__)
+ #include "include/ch559.h"
+ #include "include/ch559_usb.h"
+#else
+  #include "include/ch554.h"
+  #include "include/ch554_usb.h"
+#endif
 
 #define  SET_LINE_CODING                0X20            // Configures DTE rate, stop-bits, parity, and number-of-character
 #define  GET_LINE_CODING                0X21            // This request allows the host to find out the currently configured line coding.
