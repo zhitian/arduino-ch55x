@@ -2,6 +2,8 @@
 
 This project brings support for the CH55X chip to the Arduino environment. It lets you write sketches, using familiar Arduino functions and libraries, and run them directly on CH55X, with no external microcontroller required.
 
+Based in the work of [CH55xduino](https://github.com/DeqingSun/ch55xduino)
+
 ## Contents
 - [Installation Instructions](#installation-instructions)
 
